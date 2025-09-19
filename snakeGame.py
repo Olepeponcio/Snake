@@ -50,14 +50,23 @@ class Game:
             if event.type == pygame.QUIT:
                 self.running = False
             elif event.type == pygame.KEYDOWN:
-                # here handle sanke input
-                pass
+                # snake input functionality
+                if event.key in (pygame.K_UP, pygame.K_w):
+                    self.snake.direction = (0, -1)
+                elif event.key in (pygame.K_DOWN, pygame.K_s):
+                    self.snake.direction = (0, 1)
+                elif event.key in (pygame.K_LEFT, pygame.K_a):
+                    self.snake.direction = (-1, 0)
+                elif event.key in (pygame.K_RIGHT, pygame.K_d):
+                    self.snake.direction = (1, 0)
 
     def update(self):
         if self.snake:
             self.snake.update()
+            print(self.snake)
         if self.food:
             self.food.update()
+            print(self.food)
 
     def render(self):
         #background color

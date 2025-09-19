@@ -8,9 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/food.py" beforeDir="false" afterPath="$PROJECT_DIR$/food.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sanake.py" beforeDir="false" afterPath="$PROJECT_DIR$/sanake.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snakeGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/snakeGame.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snake_segment_composition.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -14,10 +14,17 @@ class Food(GameObject):
         # class attributes
         self.position = (0,0) # must randomize when start game
 
+    def __str__(self):
+        return f"Food(position={self.position})"
+
     def randomize_position(self):
-        x = random.randint(0,  self._MAX_POSITION[0]- self.size)
-        y = random.randint(0, self._MAX_POSITION[1] - self.size)
-        self.position = (x,y)
+        max_x = (self._MAX_POSITION[0] - self.size) // self.size
+        max_y = (self._MAX_POSITION[1] - self.size) // self.size
+
+        x = random.randint(0, max_x) * self.size
+        y = random.randint(0, max_y) * self.size
+
+        self.position = (x, y)
 
         # methods of GameOject
     def update(self):

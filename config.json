@@ -10,7 +10,7 @@
     "segment_size": 20,
     "speed": 5,
     "initial_length": 3,
-    "start_position": [100, 100]
+    "start_position": [0, 0]
   },
 
   "food": {
