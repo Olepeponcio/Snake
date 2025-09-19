@@ -57,6 +57,13 @@ class Snake(GameObject):
     def collides_with_food(self, food):
         return self.next_head_position() == food.position
 
+    def collides_with_self(self):
+        head = self.bodylist[0]
+        # revisa todos los segmentos excepto la cabeza
+        for seg in self.bodylist[1:]:
+            if head.coords == seg.coords:
+                return True
+        return False
 
     # methods of GameOject
     def update(self):

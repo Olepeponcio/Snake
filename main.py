@@ -1,5 +1,7 @@
-"""Main class. Hosts the structure of the game's main loop.
-Imports and calls the classes defined in Object-Oriented Programming."""
+"""Main class.
+Gestor de estados: Menu ↔ Juego ↔ Game Over ↔ Menu
+"""
+
 import pygame
 import sys
 import json
@@ -8,14 +10,14 @@ from menu_inicial import MainMenu
 
 pygame.init()
 
-# cargar configuraciones
+# Cargar configuraciones
 with open("config.json") as f:
     config = json.load(f)
 
 with open("main_menu.json") as f:
     main_m = json.load(f)
 
-# bucle maestro de estados
+# Estados posibles: "menu", "juego"
 estado = "menu"
 
 while True:
@@ -26,7 +28,7 @@ while True:
         if opcion == "new_game":
             estado = "juego"
         elif opcion == "show_scores":
-            print("Mostrar scores")
+            print("Mostrar scores")  # aquí puedes enlazar a otra pantalla
             estado = "menu"
         elif opcion == "exit":
             pygame.quit()
@@ -34,13 +36,7 @@ while True:
 
     elif estado == "juego":
         juego = Game(config)
-        resultado = juego.run()
+        resultado = juego.run()  # run devuelve "game_over" al perder
 
         if resultado == "game_over":
             estado = "menu"
-
-
-
-
-
-

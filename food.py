@@ -17,19 +17,35 @@ class Food(GameObject):
     def __str__(self):
         return f"Food(position={self.position})"
 
-    def randomize_position(self):
-        max_width, max_height = self._MAX_POSITION  # dimensiones en pixeles
+    def randomize_position(self, blocked_positions=None):
+        """
+        Coloca el objeto en una posición aleatoria dentro de la pantalla.
+        blocked_positions: lista de tuplas (x, y) que deben evitarse (ej: muros, snake).
+        """
+        max_width, max_height = self._MAX_POSITION
+        cell_size = self.size
 
-        # número máximo de celdas (enteras) en cada eje
-        cells_x = max_width // self.size
-        cells_y = max_height // self.size
+        # número máximo de celdas en cada eje
+        cells_x = (max_width - cell_size) // cell_size
+        cells_y = (max_height - cell_size) // cell_size
 
-        # elegir una celda válida
-        cell_x = random.randint(0, cells_x - 1)
-        cell_y = random.randint(0, cells_y - 1)
+        # todas las celdas posibles
+        todas_celdas = [
+            (x * cell_size, y * cell_size)
+            for x in range(cells_x + 1)
+            for y in range(cells_y + 1)
+        ]
 
-        # convertir la celda a coordenada en pixeles
-        self.position = (cell_x * self.size, cell_y * self.size)
+        # excluir posiciones bloqueadas
+        if blocked_positions:
+            bloqueadas = set(blocked_positions)
+            celdas_validas = [pos for pos in todas_celdas if pos not in bloqueadas]
+        else:
+            celdas_validas = todas_celdas
+
+        if not celdas_validas:
+            raise ValueError("No hay celdas libres para colocar el objeto.")
+        self.position = random.choice(celdas_validas)
 
         # methods of GameOject
     def update(self):

@@ -15,6 +15,8 @@ from walls import Walls
 
 class Game:
     def __init__(self, config: dict):
+
+        self.resultado = ""
         pygame.init()
 
         # load JSAON parameters
@@ -22,6 +24,8 @@ class Game:
         self.width =screen_conf["width"]
         self.height = screen_conf['height']
         self.fps = screen_conf['fps']
+        # Fuente para el marcador (puedes meterlo en config si quieres)
+        self.font = pygame.font.Font(None, 36)  # None = fuente por defecto
 
         colors_conf = config['colors']
         self.color_background = tuple(colors_conf['background'])
@@ -42,13 +46,14 @@ class Game:
         self.walls = Walls(config['walls'])
         self.snake = Snake(config['snake'])
         self.food = Food(config['food'])
-        self.food.randomize_position()
+        self.food.randomize_position(self.walls.blocks)
 
     # --- class methods ---
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+                return "game_over"
             elif event.type == pygame.KEYDOWN:
                 # snake input functionality
                 if event.key in (pygame.K_UP, pygame.K_w):
@@ -61,7 +66,6 @@ class Game:
                     self.snake.direction = (1, 0)
 
     def update(self):
-        print(self.food)
         if self.snake:
             self.snake.update()
         if self.food:
@@ -70,18 +74,29 @@ class Game:
         # Sanake collides with walls or itself
         if self.snake.collides_with_walls(self.walls.blocks):
             self.running = False
-            # GAME OVER
+            return "game_over"
             # SHOW FINAL SCORE
-            # Pause/restart
+        elif self.snake.collides_with_self():
+            self.running = False
+            return "game_over"
+
 
         # snake collides with food?
         elif self.snake.collides_with_food(self.food):
             # Generate new food at random position
-            self.food.randomize_position()
+            self.food.randomize_position(self.walls.blocks)
             # Increase snake length
             self.snake.grow()
             # Increase score
             self.score += 1
+
+    def render_score(self, x=10, y=10):
+        """
+        Renderiza el marcador en la posición (x, y).
+        """
+        text_surface = self.font.render(f"Score: {self.score}", True, (0, 255, 0))
+        text_rect = text_surface.get_rect(topleft=(x, y))
+        self.screen.blit(text_surface, text_rect)
 
     # UPDATE GUID
     def render(self):
@@ -93,15 +108,21 @@ class Game:
             self.food.render(self.screen)
         if self.walls:
             self.walls.render(self.screen)
+        self.render_score(self.width // 2  - 50, self.height - 25)  # esquina superior izquierda
         pygame.display.flip()
 
     def run(self):
         while self.running:
-            self.handle_events()
-            self.update()
+
+            menu = self.handle_events()
+            resultado = self.update()  # recoger retorno
+
+            if resultado == "game_over" or menu == "game_over":
+                return "game_over"  # devolver estado al bucle maestro
+
             self.render()
-            self.clock.tick(self.fps) #control of render velocity
-        pygame.quit()  # <- clean close program
+            self.clock.tick(self.fps)  # control de velocidad de render
+
 
 
 
