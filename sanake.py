@@ -41,9 +41,20 @@ class Snake(GameObject):
         # vinculate to update
         self.length +=1
 
-    def check_collision(self):
-        pass
+    def next_head_position(self):
+        dx, dy = self.direction
+        head_x, head_y = self.bodylist[0].coords
+        return (head_x + dx * self.segment_size,
+                head_y + dy * self.segment_size)
 
+
+    def collides_with_walls(self, objeto):
+        """detect collisiono with walls early inside to the object"""
+        next_pos = self.next_head_position()
+        return next_pos in objeto
+
+    def collides_with_food(self, food):
+        return self.next_head_position() == food.position
 
 
     # methods of GameOject

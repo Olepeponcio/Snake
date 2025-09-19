@@ -39,7 +39,7 @@ class Game:
         self.score = 0
 
         # here build game objects
-        # self.walls = Walls(config['walls'])
+        self.walls = Walls(config['walls'])
         self.snake = Snake(config['snake'])
         self.food = Food(config['food'])
         self.food.randomize_position()
@@ -61,10 +61,28 @@ class Game:
                     self.snake.direction = (1, 0)
 
     def update(self):
+        print(self.food)
         if self.snake:
             self.snake.update()
         if self.food:
             self.food.update()
+
+        # Sanake collides with walls or itself
+        if self.snake.collides_with_walls(self.walls.blocks):
+            self.running = False
+            # GAME OVER
+            # SHOW FINAL SCORE
+            # Pause/restart
+
+        # snake collides with food?
+        elif self.snake.collides_with_food(self.food):
+            # Generate new food at random position
+            self.food.randomize_position()
+            # Increase snake length
+            self.snake.grow()
+            # Increase score
+            self.score += 1
+
 
     def render(self):
         #background color
@@ -73,6 +91,8 @@ class Game:
             self.snake.render(self.screen)
         if self.food:
             self.food.render(self.screen)
+        if self.walls:
+            self.walls.render(self.screen)
         pygame.display.flip()
 
     def run(self):
@@ -88,30 +108,6 @@ class Game:
 
 
 
-
-        # MAIN LOOP
-
-        # captura events (keyborad)
-        # Direction key pressed?
-        # yes -> update direction
-
-        # Move snake in current direction
-        # Add new "head" forward path
-        # Remove last "tail"
-        # snake collides with food?
-
-        # NO
-        # YES
-        # Generate new food at random position
-        # Increase snake length
-        # Increase score
-
-        # Sanake collides with walls or itself
-        # NO
-        # YES
-        # GAME OVER
-        # SHOW FINAL SCORE
-        # Pause/restart
 
         # UPDATE GUID
         # Draw snak, food

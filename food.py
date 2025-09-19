@@ -18,13 +18,18 @@ class Food(GameObject):
         return f"Food(position={self.position})"
 
     def randomize_position(self):
-        max_x = (self._MAX_POSITION[0] - self.size) // self.size
-        max_y = (self._MAX_POSITION[1] - self.size) // self.size
+        max_width, max_height = self._MAX_POSITION  # dimensiones en pixeles
 
-        x = random.randint(0, max_x) * self.size
-        y = random.randint(0, max_y) * self.size
+        # número máximo de celdas (enteras) en cada eje
+        cells_x = max_width // self.size
+        cells_y = max_height // self.size
 
-        self.position = (x, y)
+        # elegir una celda válida
+        cell_x = random.randint(0, cells_x - 1)
+        cell_y = random.randint(0, cells_y - 1)
+
+        # convertir la celda a coordenada en pixeles
+        self.position = (cell_x * self.size, cell_y * self.size)
 
         # methods of GameOject
     def update(self):

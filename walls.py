@@ -17,7 +17,7 @@ class Walls(GameObject):
             self.blocks.append((x, self._MAX_HEIGHT - self.size))
         for y in range(0, self._MAX_HEIGHT, self.size):
             self.blocks.append((0, y))
-            self.blocks.append((self._MAX_HEIGHT - self.size, y))
+            self.blocks.append((self._MAX_WIDTH - self.size, y))
 
     def render(self, surface):
         import pygame
