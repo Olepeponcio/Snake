@@ -3,9 +3,14 @@
 from game_object import GameObject
 
 class Snake(GameObject):
-    def __init__(self):
+    def __init__(self, config: dict):
+        # load from a file
+        self.color = tuple(config['color'])
+        self.segment_size =config['segment_size']
+        self.speed = config['speed']
+        # class attributes
         self.bodylist : list[Snake.Segment] = []
-        self.direction = tuple()
+        self.direction = (1,0)     #right defect
 
     # Segment control coord of snake body
     class Segment:

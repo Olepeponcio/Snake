@@ -38,7 +38,7 @@ class Game:
 
         # here build game objects
         self.snake = Snake(config['snake'])   # instantiated after
-        self.food = None    # instantiated after
+        self.food = Food(config['food'])    # instantiated after
 
     # --- class methods ---
     def handle_events(self):
