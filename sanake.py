@@ -12,6 +12,9 @@ class Snake(GameObject):
         def __init__(self, x = int, y= int):
             self.coords = tuple((x,y))
 
+    def __str__(self):
+        return f"Snake(length={len(self.bodylist)}, direction={self.direction})"
+
     def move(self):
         pass
 
@@ -29,5 +32,6 @@ class Snake(GameObject):
     def render(self, surface):
         """surface as a pygame object"""
         pass
+
 
 
