@@ -83,7 +83,7 @@ class Game:
             # Increase score
             self.score += 1
 
-
+    # UPDATE GUID
     def render(self):
         #background color
         self.screen.fill(self.color_background)
@@ -103,19 +103,6 @@ class Game:
             self.clock.tick(self.fps) #control of render velocity
         pygame.quit()  # <- clean close program
 
-
-
-
-
-
-
-        # UPDATE GUID
-        # Draw snak, food
-        # Display score
-        # refresh screen
-        # control FPS
-
-        # Back to MAIN LOOP
 
 
 

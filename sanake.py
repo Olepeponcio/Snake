@@ -50,8 +50,9 @@ class Snake(GameObject):
 
     def collides_with_walls(self, objeto):
         """detect collisiono with walls early inside to the object"""
-        next_pos = self.next_head_position()
-        return next_pos in objeto
+        # next_pos = self.next_head_position()
+        pos = self.bodylist[0].coords
+        return pos in objeto
 
     def collides_with_food(self, food):
         return self.next_head_position() == food.position

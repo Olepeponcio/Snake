@@ -1,0 +1,21 @@
+{
+  "title": "Snake - Menu Principal",
+  "window": {
+    "width": 800,
+    "height": 600
+  },
+  "style": {
+    "font": null,
+    "font_size": 50,
+    "colors": {
+      "background": [255, 255, 255],
+      "text": [0, 0, 0],
+      "highlight": [50, 100, 255]
+    }
+  },
+  "options": [
+    {"label": "Juego nuevo", "action": "new_game"},
+    {"label": "Ver scores", "action": "show_scores"},
+    {"label": "Salir", "action": "exit"}
+  ]
+}
