@@ -2,7 +2,7 @@
   "screen": {
     "width": 600,
     "height": 400,
-    "fps": 10
+    "fps": 5
   },
 
   "snake": {

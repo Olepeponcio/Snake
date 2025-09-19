@@ -1,5 +1,8 @@
 """Snake and Food inherit from GameObject → both implement update
 (their own logic) and render (their way of drawing themselves on screen)."""
+from email.quoprimime import body_length
+from types import new_class
+
 from game_object import GameObject
 
 
@@ -13,6 +16,11 @@ class Snake(GameObject):
         self.position = config['start_position']
         # class attributes
         self.bodylist : list[Snake.Segment] = []
+        # initialize bodylist
+        for i in range(self.length):
+            x = self.position[0] - i * self.segment_size
+            y = self.position[1]
+            self.bodylist.append(self.Segment(x, y))
         self.direction = (1,0)     #right defect
 
     # Segment control coord of snake body
@@ -23,22 +31,34 @@ class Snake(GameObject):
     def __str__(self):
         return f"Snake(length={len(self.bodylist)}, direction={self.direction})"
 
+
     def move(self):
         pass
 
     def grow(self):
-        # Inicializar bodylist con segmentos
-        for i in range(self.length):
-            x = self.position[0] - i * self.segment_size
-            y = self.position[1]
-            self.bodylist.append(self.Segment(x, y))
+        # vinculate to update
+        self.length +=1
 
     def check_collision(self):
         pass
     # methods of GameOject
 
     def update(self):
-        pass
+        """The element at index 0 in the list takes the direction,
+        must pop tail element"""
+        dx, dy = self.direction
+        head_x, head_y= self.bodylist[0].coords
+
+        #new position of head
+        new_x = head_x + dx * self.segment_size
+        new_y = head_y + dy * self.segment_size
+
+        #insert new head
+        new_head = Snake.Segment(new_x, new_y)
+        self.bodylist.insert(0,new_head)
+        #pop tail segment
+        if len(self.bodylist) > self.length:
+            self.bodylist.pop()
 
 
     def render(self, surface):

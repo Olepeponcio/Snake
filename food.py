@@ -21,7 +21,8 @@ class Food(GameObject):
 
         # methods of GameOject
     def update(self):
-        pass
+      pass
+
 
     def render(self, surface):
         """surface as a pygame object"""
