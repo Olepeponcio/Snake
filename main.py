@@ -2,7 +2,7 @@ import pygame
 import sys
 import json
 from snakeGame import Game
-from menu import Menu   # la clase unificada que carga JSON
+from menu import Menu
 
 pygame.init()
 
@@ -10,10 +10,10 @@ pygame.init()
 with open("config.json") as f:
     config = json.load(f)
 
-# estados posibles
+# estados posibles: "menu", "juego", "pause", "game_over"
 estado = "menu"
 
-# crear ventana principal
+# ventana principal
 screen_conf = config["screen"]
 screen = pygame.display.set_mode((screen_conf["width"], screen_conf["height"]))
 pygame.display.set_caption("Snake Game")
@@ -46,9 +46,9 @@ while True:
         opcion = pause_menu.run(screen)
 
         if opcion == "resume":
-            estado = "juego"
+            estado = "juego"   # volver a jugar
         elif opcion == "menu":
-            estado = "menu"
+            estado = "menu"    # ir al menú principal
         elif opcion == "exit":
             pygame.quit()
             sys.exit()

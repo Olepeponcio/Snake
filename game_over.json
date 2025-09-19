@@ -14,7 +14,7 @@
     }
   },
   "options": [
-    {"label": "Volver al menu", "action": "menu"},
-    {"label": "Salir", "action": "exit"}
+    { "label": "Volver al menu", "action": "menu" },
+    { "label": "Salir", "action": "exit" }
   ]
 }

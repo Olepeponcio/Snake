@@ -48,15 +48,16 @@ class Game:
         self.food = Food(config['food'])
         self.food.randomize_position(self.walls.blocks)
 
-    # --- class methods ---
     def handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
                 return "game_over"
+
             elif event.type == pygame.KEYDOWN:
-                # snake input functionality
-                if event.key in (pygame.K_UP, pygame.K_w):
+                if event.key == pygame.K_ESCAPE:
+                    return "pause"
+                elif event.key in (pygame.K_UP, pygame.K_w):
                     self.snake.direction = (0, -1)
                 elif event.key in (pygame.K_DOWN, pygame.K_s):
                     self.snake.direction = (0, 1)
@@ -119,6 +120,8 @@ class Game:
 
             if resultado == "game_over" or menu == "game_over":
                 return "game_over"  # devolver estado al bucle maestro
+            elif menu =="pause":
+                return "pause"
 
             self.render()
             self.clock.tick(self.fps)  # control de velocidad de render

@@ -14,8 +14,8 @@
     }
   },
   "options": [
-    {"label": "Reanudar", "action": "resume"},
-    {"label": "Volver al menú", "action": "menu"},
-    {"label": "Salir", "action": "exit"}
+    { "label": "Reanudar", "action": "resume" },
+    { "label": "Volver al menu", "action": "menu" },
+    { "label": "Salir", "action": "exit" }
   ]
 }

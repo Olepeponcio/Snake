@@ -1,7 +1,7 @@
 {
   "screen": {
-    "width": 800,
-    "height": 630,
+    "width": 600,
+    "height": 430,
     "fps": 5
   },
   "snake": {
@@ -18,8 +18,8 @@
       60
     ],
     "max_position": [
-      800,
-      600
+      600,
+      400
     ]
   },
   "food": {
@@ -30,8 +30,8 @@
     ],
     "size": 20,
     "max_position": [
-      800,
-      600
+      600,
+      400
     ]
   },
   "colors": {
@@ -47,8 +47,8 @@
     ]
   },
   "walls": {
-    "width": 800,
-    "height": 600,
+    "width": 600,
+    "height": 400,
     "color": [
       0,
       0,
