@@ -33,6 +33,8 @@ class Game:
         pygame.display.set_caption('Snake Game')
 
         # --- Time Control ---
+        self.clock = pygame.time.Clock()
+        # ---Game state ---
         self.running = True
         self.score = 0
 
@@ -52,6 +54,25 @@ class Game:
     def update(self):
         if self.snake:
             self.snake.update()
+        if self.food:
+            self.food.update()
+
+    def render(self):
+        #background color
+        self.screen.fill(self.color_background)
+
+        if self.snake:
+            self.snake.render(self.screen)
+        if self.food:
+            self.food.render(self.screen)
+
+    def run(self):
+        while self.running:
+            self.handle_events()
+            self.update()
+            self.render()
+            self.clock.tick(self.fps) #control of render velocity
+        pygame.quit()  # <- clean close program
 
 
 
