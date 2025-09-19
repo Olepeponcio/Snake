@@ -1,0 +1,21 @@
+{
+  "title": "Pausa",
+  "window": { "width": 600, "height": 400 },
+  "style": {
+    "title_font": null,
+    "title_size": 70,
+    "option_font": null,
+    "option_size": 40,
+    "colors": {
+      "background": [30, 30, 30],
+      "title": [255, 255, 0],
+      "text": [200, 200, 200],
+      "highlight": [0, 200, 0]
+    }
+  },
+  "options": [
+    {"label": "Reanudar", "action": "resume"},
+    {"label": "Volver al menú", "action": "menu"},
+    {"label": "Salir", "action": "exit"}
+  ]
+}
