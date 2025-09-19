@@ -2,6 +2,7 @@
 (their own logic) and render (their way of drawing themselves on screen)."""
 from game_object import GameObject
 
+
 class Snake(GameObject):
     def __init__(self, config: dict):
         # load from a file
@@ -26,7 +27,11 @@ class Snake(GameObject):
         pass
 
     def grow(self):
-        pass
+        # Inicializar bodylist con segmentos
+        for i in range(self.length):
+            x = self.position[0] - i * self.segment_size
+            y = self.position[1]
+            self.bodylist.append(self.Segment(x, y))
 
     def check_collision(self):
         pass
@@ -38,7 +43,11 @@ class Snake(GameObject):
 
     def render(self, surface):
         """surface as a pygame object"""
-        pass
+        import pygame
+        for seg in self.bodylist:
+            x, y = seg.coords
+            rect = pygame.Rect(x, y, self.segment_size, self.segment_size)
+            pygame.draw.rect(surface, self.color, rect)
 
 
 

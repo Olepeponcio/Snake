@@ -15,10 +15,9 @@ class Food(GameObject):
         self.position = (0,0) # must randomize when start game
 
     def randomize_position(self):
-        # x = random.randint(0,  self._MAX_POSITION[0]- self.size)
-        # y = random.randint(0, self._MAX_POSITION[1] - self.size)
-        # self.position = (x,y)
-        self.position = (300, 200)
+        x = random.randint(0,  self._MAX_POSITION[0]- self.size)
+        y = random.randint(0, self._MAX_POSITION[1] - self.size)
+        self.position = (x,y)
 
         # methods of GameOject
     def update(self):
@@ -26,5 +25,8 @@ class Food(GameObject):
 
     def render(self, surface):
         """surface as a pygame object"""
-        pass
+        import pygame
+        x, y = self.position
+        rect = pygame.Rect(x, y, self.size, self.size)
+        pygame.draw.rect(surface, self.color, rect)
 

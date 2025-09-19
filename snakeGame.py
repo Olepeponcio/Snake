@@ -38,9 +38,10 @@ class Game:
         self.score = 0
 
         # here build game objects
-        self.snake = None
-        self.food = None
+        # self.snake = None
+        # self.food = None
         self.snake = Snake(config['snake'])
+        self.snake.grow()
         self.food = Food(config['food'])
         self.food.randomize_position()
 
