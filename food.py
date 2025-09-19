@@ -7,14 +7,18 @@ import random
 class Food(GameObject):
     def __init__(self, config: dict):
         # load from a file
+        # argument is a object
+        self._MAX_POSITION = tuple(config['max_position'])
         self.color = tuple(config['color'])
         self.size = config['size']
         # class attributes
         self.position = (0,0) # must randomize when start game
 
     def randomize_position(self):
-        # self.position =
-        pass
+        # x = random.randint(0,  self._MAX_POSITION[0]- self.size)
+        # y = random.randint(0, self._MAX_POSITION[1] - self.size)
+        # self.position = (x,y)
+        self.position = (300, 200)
 
         # methods of GameOject
     def update(self):

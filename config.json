@@ -1,0 +1,26 @@
+{
+  "screen": {
+    "width": 600,
+    "height": 400,
+    "fps": 10
+  },
+
+  "snake": {
+    "color": [0, 255, 0],
+    "segment_size": 20,
+    "speed": 5,
+    "initial_length": 3,
+    "start_position": [100, 100]
+  },
+
+  "food": {
+    "color": [255, 0, 0],
+    "size": 20,
+    "max_position": [600,400]
+  },
+
+  "colors": {
+    "background": [0, 0, 0],
+    "text": [255, 255, 255]
+  }
+}

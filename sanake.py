@@ -8,6 +8,8 @@ class Snake(GameObject):
         self.color = tuple(config['color'])
         self.segment_size =config['segment_size']
         self.speed = config['speed']
+        self.length = config['initial_length']
+        self.position = config['start_position']
         # class attributes
         self.bodylist : list[Snake.Segment] = []
         self.direction = (1,0)     #right defect

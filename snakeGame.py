@@ -8,7 +8,6 @@ Control FPS (frames per second).
 Manage game over and restart."""
 
 import pygame
-from pygame.examples.go_over_there import screen
 from sanake import Snake
 from food import Food
 
@@ -25,12 +24,12 @@ class Game:
 
         colors_conf = config['colors']
         self.color_background = tuple(colors_conf['background'])
-        self.color_snake = tuple(colors_conf['snake'])
-        self.color_foof = tuple(colors_conf['food'])
+        # self.color_snake = tuple(colors_conf['snake'])
+        # self.color_foof = tuple(colors_conf['food'])
 
         # --- main window ---
-        self.screen = pygame.display.set_mode(self.width, self.height)
-        pygame.display.set_caption('Snake Game')
+        self.screen = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption('Mi Snake')
 
         # --- Time Control ---
         self.clock = pygame.time.Clock()
@@ -39,8 +38,11 @@ class Game:
         self.score = 0
 
         # here build game objects
-        self.snake = Snake(config['snake'])   # instantiated after
-        self.food = Food(config['food'])    # instantiated after
+        self.snake = None
+        self.food = None
+        self.snake = Snake(config['snake'])
+        self.food = Food(config['food'])
+        self.food.randomize_position()
 
     # --- class methods ---
     def handle_events(self):
@@ -60,11 +62,11 @@ class Game:
     def render(self):
         #background color
         self.screen.fill(self.color_background)
-
         if self.snake:
             self.snake.render(self.screen)
         if self.food:
             self.food.render(self.screen)
+        pygame.display.flip()
 
     def run(self):
         while self.running:
@@ -73,6 +75,50 @@ class Game:
             self.render()
             self.clock.tick(self.fps) #control of render velocity
         pygame.quit()  # <- clean close program
+
+
+
+
+
+
+
+        # MAIN LOOP
+
+        # captura events (keyborad)
+        # Direction key pressed?
+        # yes -> update direction
+
+        # Move snake in current direction
+        # Add new "head" forward path
+        # Remove last "tail"
+        # snake collides with food?
+
+        # NO
+        # YES
+        # Generate new food at random position
+        # Increase snake length
+        # Increase score
+
+        # Sanake collides with walls or itself
+        # NO
+        # YES
+        # GAME OVER
+        # SHOW FINAL SCORE
+        # Pause/restart
+
+        # UPDATE GUID
+        # Draw snak, food
+        # Display score
+        # refresh screen
+        # control FPS
+
+        # Back to MAIN LOOP
+
+
+
+
+
+
 
 
 
