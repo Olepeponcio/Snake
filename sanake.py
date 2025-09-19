@@ -14,6 +14,8 @@ class Snake(GameObject):
         self.speed = config['speed']
         self.length = config['initial_length']
         self.position = config['start_position']
+        self._MAX_POSITION = tuple(config['max_position'])
+
         # class attributes
         self.bodylist : list[Snake.Segment] = []
         # initialize bodylist
@@ -41,8 +43,10 @@ class Snake(GameObject):
 
     def check_collision(self):
         pass
-    # methods of GameOject
 
+
+
+    # methods of GameOject
     def update(self):
         """The element at index 0 in the list takes the direction,
         must pop tail element"""

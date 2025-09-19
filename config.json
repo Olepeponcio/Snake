@@ -10,7 +10,8 @@
     "segment_size": 20,
     "speed": 5,
     "initial_length": 3,
-    "start_position": [0, 0]
+    "start_position": [0, 0],
+    "max_position": [600,400]
   },
 
   "food": {
@@ -22,5 +23,10 @@
   "colors": {
     "background": [0, 0, 0],
     "text": [255, 255, 255]
-  }
+  },
+    "walls": {
+    "width": 600,
+    "height": 400,
+    "color": [0, 0, 255]
+    }
 }

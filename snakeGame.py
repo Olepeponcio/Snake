@@ -10,6 +10,7 @@ Manage game over and restart."""
 import pygame
 from sanake import Snake
 from food import Food
+from walls import Walls
 
 
 class Game:
@@ -38,8 +39,7 @@ class Game:
         self.score = 0
 
         # here build game objects
-        # self.snake = None
-        # self.food = None
+        # self.walls = Walls(config['walls'])
         self.snake = Snake(config['snake'])
         self.food = Food(config['food'])
         self.food.randomize_position()
@@ -63,10 +63,8 @@ class Game:
     def update(self):
         if self.snake:
             self.snake.update()
-            print(self.snake)
         if self.food:
             self.food.update()
-            print(self.food)
 
     def render(self):
         #background color
