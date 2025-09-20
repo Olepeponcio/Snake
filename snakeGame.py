@@ -58,13 +58,17 @@ class Game:
                 if event.key == pygame.K_ESCAPE:
                     return "pause"
                 elif event.key in (pygame.K_UP, pygame.K_w):
-                    self.snake.direction = (0, -1)
+                    if self.snake.direction != (0, 1):
+                        self.snake.direction = (0, -1)
                 elif event.key in (pygame.K_DOWN, pygame.K_s):
-                    self.snake.direction = (0, 1)
+                    if self.snake.direction != (0,-1):
+                        self.snake.direction = (0, 1)
                 elif event.key in (pygame.K_LEFT, pygame.K_a):
-                    self.snake.direction = (-1, 0)
+                    if self.snake.direction != (1, 0):
+                        self.snake.direction = (-1, 0)
                 elif event.key in (pygame.K_RIGHT, pygame.K_d):
-                    self.snake.direction = (1, 0)
+                    if  self.snake.direction != (-1, 0):
+                        self.snake.direction = (1, 0)
 
     def update(self):
         if self.snake:
