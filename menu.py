@@ -48,7 +48,7 @@ class Menu:
 
         # caso especial: menú de puntuaciones
         if self.title.lower().startswith("mejores puntuaciones"):
-            score_manager = ScoreManager("scores.json")
+            score_manager = ScoreManager("resources/scores.json")
             scores = score_manager.get_scores()
 
             start_y = title_rect.bottom + 30

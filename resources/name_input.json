@@ -4,20 +4,20 @@
     "height": 400
   },
   "style": {
-    "font": null,
-    "title_size": 60,
-    "text_size": 40,
+    "font": "resources/fonts/arcade.ttf",
+    "title_size": 40,
+    "text_size": 20,
     "colors": {
       "background": [0, 0, 0],
       "title": [255, 215, 0],
       "text": [200, 200, 200],
-      "score": [255, 255, 255]
+      "score": [200, 200, 200]
     }
   },
   "layout": {
-    "title_y": 100,
+    "title_y": 90,
     "score_y": 150,
-    "input_y": 220,
-    "spacing": 40
+    "input_y": 230,
+    "spacing": 35
   }
 }

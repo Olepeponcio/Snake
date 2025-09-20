@@ -1,20 +1,20 @@
 {
-  "title": "Mejores Puntuaciones",
+  "title": "GAME OVER",
   "window": { "width": 600, "height": 400 },
   "style": {
-    "title_font": null,
+    "title_font": "resources/fonts/arcade.ttf",
     "title_size": 50,
-    "option_font": null,
-    "option_size": 35,
+    "option_font": "resources/fonts/arcade.ttf",
+    "option_size": 25,
     "colors": {
-      "background": [20, 20, 20],
+      "background": [0, 0, 0],
       "title": [255, 215, 0],
       "text": [200, 200, 200],
       "highlight": [0, 200, 0]
     }
   },
   "options": [
-    { "label": "Volver al menu", "action": "menu" },
+    { "label": "Menu principal", "action": "menu" },
     { "label": "Salir", "action": "exit" }
   ]
 }
