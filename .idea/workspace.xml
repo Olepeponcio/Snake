@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="995e26cb-9522-4de8-98fb-94aab74da876" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/food.py" beforeDir="false" afterPath="$PROJECT_DIR$/food.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/scores.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/scores.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snakeGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/snakeGame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +47,7 @@
     "Python.walls.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "testing__collided__with__food",
+    "git-widget-placeholder": "main",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
