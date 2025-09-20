@@ -75,6 +75,43 @@ class Game:
                     if  self.snake.direction != (-1, 0):
                         self.snake.direction = (1, 0)
 
+    def get_state(self) -> dict:
+        """
+        Devuelve un snapshot del estado actual del juego.
+        """
+        return {
+            "snake": {
+                "body": [seg.coords for seg in self.snake.bodylist],
+                "direction": self.snake.direction
+            },
+            "food": {
+                "position": self.food.position
+            },
+            "score": self.score,
+            "fps": self.fps
+        }
+
+    def set_state(self, state: dict):
+        """
+        Restaura un snapshot del estado del juego.
+        """
+        # reconstruir snake a partir de coords
+        self.snake.bodylist = [
+            self.snake.Segment.from_tuple(c) for c in state["snake"]["body"]
+        ]
+        self.snake.direction = tuple(state["snake"]["direction"])
+
+        # restaurar food
+        self.food.position = tuple(state["food"]["position"])
+
+        # restaurar score y velocidad
+        self.score = state["score"]
+        self.fps = state["fps"]
+
+        # reactivar bandera
+        self.running = True
+
+
     def update(self):
         if self.snake:
             self.snake.update()
