@@ -1,0 +1,24 @@
+{
+    "scores": [
+        {
+            "player": "player",
+            "score": 15
+        },
+        {
+            "player": "player",
+            "score": 14
+        },
+        {
+            "player": "pepo",
+            "score": 12
+        },
+        {
+            "player": "Pepo",
+            "score": 11
+        },
+        {
+            "player": "w",
+            "score": 10
+        }
+    ]
+}

@@ -155,8 +155,8 @@ class Game:
         self.screen.blit(text_surface, text_rect)
 
     def render_controls(self, x=10, y=10):
-        font_controls = pygame.font.Font(None, 40)  # None = fuente por defecto, size = px
-        text_surface = font_controls.render("Controls: W-A-S-D / Arrows", True, (0, 255, 0))
+        font_controls = pygame.font.Font(None, 30)  # None = fuente por defecto, size = px
+        text_surface = font_controls.render("Controls: W-A-S-D / Arrows / SCAPE = Pause", True, (0, 255, 0))
         text_rect = text_surface.get_rect(topleft=(x, y))
         self.screen.blit(text_surface, text_rect)
 

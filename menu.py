@@ -1,6 +1,16 @@
 import pygame
 import json
+import os, sys
 from score_manager import ScoreManager
+
+
+def resource_path(relative_path: str) -> str:
+    """
+    Devuelve la ruta absoluta a un recurso, compatible con PyInstaller.
+    """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
 
 class Menu:
     def __init__(self, config_json):
@@ -33,10 +43,14 @@ class Menu:
         self.running = True
 
     def _load_font(self, font_path, size):
-        """Carga una fuente: si font_path es None, 'null' o '', usa la fuente por defecto."""
+        """Carga una fuente: si font_path es None o vacío, usa la fuente por defecto."""
         if not font_path or font_path == "null":
             return pygame.font.Font(None, size)
-        return pygame.font.Font(font_path, size)
+        try:
+            return pygame.font.Font(resource_path(font_path), size)
+        except FileNotFoundError:
+            print(f"⚠️ Fuente no encontrada: {font_path}, usando default")
+            return pygame.font.Font(None, size)
 
     def draw(self, screen, extra_text=None):
         screen.fill(self.color_bg)
@@ -48,7 +62,10 @@ class Menu:
 
         # caso especial: menú de puntuaciones
         if self.title.lower().startswith("mejores puntuaciones"):
-            score_manager = ScoreManager("resources/scores.json")
+            # usa score_manager externo (editable)
+            base_dir = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(os.path.abspath(__file__))
+            scores_file = os.path.join(base_dir, "scores.json")
+            score_manager = ScoreManager(scores_file)
             scores = score_manager.get_scores()
 
             start_y = title_rect.bottom + 30
