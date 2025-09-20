@@ -2,7 +2,9 @@
   "screen": {
     "width": 600,
     "height": 430,
-    "fps": 5
+    "fps": 4,
+    "fps_increment": 1,
+    "max_fps": 25
   },
   "snake": {
     "color": [

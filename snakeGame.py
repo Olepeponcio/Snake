@@ -8,6 +8,7 @@ Control FPS (frames per second).
 Manage game over and restart."""
 
 import pygame
+import math
 from sanake import Snake
 from food import Food
 from walls import Walls
@@ -23,7 +24,11 @@ class Game:
         screen_conf = config["screen"]
         self.width =screen_conf["width"]
         self.height = screen_conf['height']
-        self.fps = screen_conf['fps']
+        # velocity control of snake in game
+        self.fps_base = screen_conf["fps"]
+        self.fps_increment = screen_conf.get("fps_increment", 1)  # cuanto aumenta al comer
+        self.fps = self.fps_base
+        self.max_fps = screen_conf.get("max_fps", 60)  # limite superior opcional
         # Fuente para el marcador (puedes meterlo en config si quieres)
         self.font = pygame.font.Font(None, 36)  # None = fuente por defecto
 
@@ -88,12 +93,21 @@ class Game:
 
         # snake collides with food?
         elif self.snake.collides_with_food(self.food):
+            """evita la colisión con muros, con la propia serpiente y límites
+            fuera de rango"""
             # Generate new food at random position
-            self.food.randomize_position(self.walls.blocks)
+            # tuples list walls, exclude body list, not spawns out of range
+            self.food.randomize_position(self.walls.blocks, snake= self.snake,
+                                         require_reachable=True)
             # Increase snake length
             self.snake.grow()
             # Increase score
             self.score += 1
+            # progresive high velocity
+            self.fps = min(
+                self.fps_base + int(5 * math.log1p(self.score)),  # 5 = factor de aceleracion
+                self.max_fps
+            )
 
     def render_score(self, x=10, y=10):
         """
