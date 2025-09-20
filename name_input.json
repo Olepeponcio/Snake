@@ -1,0 +1,23 @@
+{
+  "window": {
+    "width": 600,
+    "height": 400
+  },
+  "style": {
+    "font": null,
+    "title_size": 60,
+    "text_size": 40,
+    "colors": {
+      "background": [0, 0, 0],
+      "title": [255, 215, 0],
+      "text": [200, 200, 200],
+      "score": [255, 255, 255]
+    }
+  },
+  "layout": {
+    "title_y": 100,
+    "score_y": 150,
+    "input_y": 220,
+    "spacing": 40
+  }
+}

@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="995e26cb-9522-4de8-98fb-94aab74da876" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/name_input.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/name_input.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/score_menu.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scores.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snakeGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/snakeGame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/main_menu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanake.py" beforeDir="false" afterPath="$PROJECT_DIR$/sanake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/score_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/score_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,25 +39,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests in test_food.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.food.executor&quot;: &quot;Run&quot;,
-    &quot;Python.game.executor&quot;: &quot;Run&quot;,
-    &quot;Python.game_object.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.menu_inicial.executor&quot;: &quot;Run&quot;,
-    &quot;Python.sanake.executor&quot;: &quot;Run&quot;,
-    &quot;Python.snake_game.executor&quot;: &quot;Run&quot;,
-    &quot;Python.walls.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests in test_food.py.executor": "Run",
+    "Python tests.Python tests in tests.executor": "Run",
+    "Python.food.executor": "Run",
+    "Python.game.executor": "Run",
+    "Python.game_object.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.menu_inicial.executor": "Run",
+    "Python.sanake.executor": "Run",
+    "Python.snake_game.executor": "Run",
+    "Python.walls.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "class__score__manager",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.snake_game">
     <configuration name="snake_game" type="PythonConfigurationType" factoryName="Python">
       <module name="Snake" />

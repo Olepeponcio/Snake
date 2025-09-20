@@ -1,0 +1,24 @@
+{
+    "scores": [
+        {
+            "player": "Luis",
+            "score": 10
+        },
+        {
+            "player": "Pepin",
+            "score": 9
+        },
+        {
+            "player": "player",
+            "score": 9
+        },
+        {
+            "player": "Sara",
+            "score": 7
+        },
+        {
+            "player": "Ana",
+            "score": 5
+        }
+    ]
+}

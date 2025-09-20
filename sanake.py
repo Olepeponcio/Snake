@@ -1,5 +1,6 @@
 """Snake and Food inherit from GameObject → both implement update
-(their own logic) and render (their way of drawing themselves on screen)."""
+(their own logic) and render (their way of drawing themselves on screen).
+The snake's movement is defined by its direction and update"""
 from email.quoprimime import body_length
 from types import new_class
 
@@ -34,9 +35,6 @@ class Snake(GameObject):
         return f"Snake(length={len(self.bodylist)}, direction={self.direction})"
 
 
-    def move(self):
-        pass
-
     def grow(self):
         # vinculate to update
         self.length +=1
@@ -55,7 +53,11 @@ class Snake(GameObject):
         return pos in objeto
 
     def collides_with_food(self, food):
-        return self.next_head_position() == food.position
+        """any segment of bodylist can check collision with food"""
+        for seg in self.bodylist:
+            if seg.coords == food.position:
+                return True
+        return False
 
     def collides_with_self(self):
         head = self.bodylist[0]

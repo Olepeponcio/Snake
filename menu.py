@@ -1,5 +1,6 @@
 import pygame
 import json
+from score_manager import ScoreManager
 
 class Menu:
     def __init__(self, config_json):
@@ -42,22 +43,43 @@ class Menu:
 
         # título
         title_surf = self.font_title.render(self.title, True, self.color_title)
-        title_rect = title_surf.get_rect(center=(self.width // 2, self.height // 4))
+        title_rect = title_surf.get_rect(center=(self.width // 2, self.height // 6))
         screen.blit(title_surf, title_rect)
 
-        # texto extra (ej: marcador)
-        if extra_text:
-            score_surf = self.font_option.render(extra_text, True, self.color_text)
-            score_rect = score_surf.get_rect(center=(self.width // 2, title_rect.bottom + 40))
-            screen.blit(score_surf, score_rect)
+        # caso especial: menú de puntuaciones
+        if self.title.lower().startswith("mejores puntuaciones"):
+            score_manager = ScoreManager("scores.json")
+            scores = score_manager.get_scores()
 
-        # opciones
-        start_y = self.height // 2
-        for i, option in enumerate(self.options):
-            color = self.color_highlight if i == self.selection else self.color_text
-            opt_surf = self.font_option.render(option["label"], True, color)
-            opt_rect = opt_surf.get_rect(center=(self.width // 2, start_y + i * 60))
-            screen.blit(opt_surf, opt_rect)
+            start_y = title_rect.bottom + 30
+            for i, score in enumerate(scores):
+                text = f"{score['player']} - {score['score']}"
+                score_surf = self.font_option.render(text, True, self.color_text)
+                score_rect = score_surf.get_rect(center=(self.width // 2, start_y + i * 30))
+                screen.blit(score_surf, score_rect)
+
+            # dibujar opciones debajo de la lista
+            start_y = self.height - 120
+            for i, option in enumerate(self.options):
+                color = self.color_highlight if i == self.selection else self.color_text
+                opt_surf = self.font_option.render(option["label"], True, color)
+                opt_rect = opt_surf.get_rect(center=(self.width // 2, start_y + i * 50))
+                screen.blit(opt_surf, opt_rect)
+
+        else:
+            # texto extra (ej: marcador en game over)
+            if extra_text:
+                score_surf = self.font_option.render(extra_text, True, self.color_text)
+                score_rect = score_surf.get_rect(center=(self.width // 2, title_rect.bottom + 40))
+                screen.blit(score_surf, score_rect)
+
+            # opciones normales
+            start_y = self.height // 2
+            for i, option in enumerate(self.options):
+                color = self.color_highlight if i == self.selection else self.color_text
+                opt_surf = self.font_option.render(option["label"], True, color)
+                opt_rect = opt_surf.get_rect(center=(self.width // 2, start_y + i * 60))
+                screen.blit(opt_surf, opt_rect)
 
         pygame.display.flip()
 
